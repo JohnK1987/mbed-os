@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 add_subdirectory(TARGET_LPC11XX_11CXX EXCLUDE_FROM_ALL)
+add_subdirectory(TARGET_LPC11XX_11UXX EXCLUDE_FROM_ALL)
 add_subdirectory(TARGET_LPC176X EXCLUDE_FROM_ALL)
 add_subdirectory(TARGET_MCUXpresso_MCUS EXCLUDE_FROM_ALL)
 
