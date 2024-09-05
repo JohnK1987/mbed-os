@@ -1,3 +1,16 @@
+# BUILD ERROR
+[build] [133/133 100% :: 6.720] Linking CXX executable main.elf
+[build] FAILED: main.elf 
+[build] C:\Windows\system32\cmd.exe /C "cd . && C:\ST\STM32CubeCLT\GNU-tools-for-STM32\bin\arm-none-eabi-g++.exe -Wall -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -fmessage-length=0 -fno-exceptions -ffunction-sections -fdata-sections -funsigned-char -fomit-frame-pointer -g3 -mthumb -mcpu=cortex-m0 -Wno-register -Wl,--start-group -lstdc++ -lsupc++ -lm -lc -lgcc -lnosys -Wl,--end-group -specs=nosys.specs -Wl,--cref    -T C:/MbedCE/MbedCE_H5_NEw/build/mbed-lpc11u24-401.link_script.ld -Wl,-Map=C:/MbedCE/MbedCE_H5_NEw/build/main.elf.map -Wl,--gc-sections -Wl,--wrap,main -Wl,--wrap,_malloc_r -Wl,--wrap,_free_r -Wl,--wrap,_realloc_r -Wl,--wrap,_memalign_r -Wl,--wrap,_calloc_r -Wl,--wrap,exit -Wl,--wrap,atexit -Wl,-n @CMakeFiles\main.rsp -o main.elf  && C:\Windows\system32\cmd.exe /C "cd /D C:\MbedCE\MbedCE_H5_NEw\build && arm-none-eabi-objcopy -O binary C:/MbedCE/MbedCE_H5_NEw/build/main.elf C:/MbedCE/MbedCE_H5_NEw/build/main.bin && "C:\Program Files\CMake\bin\cmake.exe" -E echo "-- built: C:/MbedCE/MbedCE_H5_NEw/build/main.bin" && arm-none-eabi-objcopy -O ihex C:/MbedCE/MbedCE_H5_NEw/build/main.elf C:/MbedCE/MbedCE_H5_NEw/build/main.hex && "C:\Program Files\CMake\bin\cmake.exe" -E echo "-- built: C:/MbedCE/MbedCE_H5_NEw/build/main.hex" && cd /D C:\MbedCE\MbedCE_H5_NEw\mbed-os\tools\python && C:\MbedCE\MbedCE_H5_NEw\mbed-os\venv\Scripts\python.exe -m memap.memap -t GCC_ARM C:/MbedCE/MbedCE_H5_NEw/build/main.elf.map --depth 2""
+[build] C:/ST/STM32CubeCLT/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe:C:/MbedCE/MbedCE_H5_NEw/build/mbed-lpc11u24-401.link_script.ld:78 cannot move location counter backwards (from 00000000100026e8 to 0000000010001c00)
+[build] collect2.exe: error: ld returned 1 exit status
+[build] ninja: build stopped: subcommand failed.
+[proc] The command: "C:\Program Files\CMake\bin\cmake.EXE" --build c:/MbedCE/MbedCE_H5_NEw/build --config Debug --target main -- exited with code: 1
+[driver] Build completed: 00:00:06.757
+[build] Build finished with exit code 1
+
+
+
 [![Mbed OS][mbed-os-logo]][mbed-os-link]
 # Mbed OS Community Edition
 
