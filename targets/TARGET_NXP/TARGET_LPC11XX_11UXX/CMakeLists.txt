@@ -30,6 +30,7 @@ target_sources(mbed-lpc11u24
         sleep.c
         spi_api.c
         us_ticker.c
+        device/system_LPC11Uxx.c
         device/cmsis_nvic.c
         ${STARTUP_FILE}
 )

@@ -9,9 +9,9 @@ STACK_SIZE = MBED_BOOT_STACK_SIZE;
 /* Linker script to configure memory regions. */
 MEMORY
 {
-  FLASH (rx) : ORIGIN = 0x00000000, LENGTH = 32K
-  RAM (rwx) : ORIGIN = 0x100000C0, LENGTH = 0x1F40
-  USB_RAM (rwx): ORIGIN = 0x20004000, LENGTH = 0x800
+  FLASH (rx)    : ORIGIN = 0x00000000, LENGTH = 32K
+  RAM (rwx)     : ORIGIN = 0x100000C0, LENGTH = 0x1F40
+  USB_RAM (rwx) : ORIGIN = 0x20004000, LENGTH = 0x800
 }
 
 /* Linker script to place sections and symbol values. Should be used together
@@ -49,11 +49,7 @@ SECTIONS
         KEEP(*(.isr_vector))
         *(.text.Reset_Handler)
         *(.text.SystemInit)
-        
-        /* Only vectors and code running at reset are safe to be in first 512
-           bytes since RAM can be mapped into this area for RAM based interrupt
-           vectors. */
-        . = 0x00000200;
+        . = 0x200;
         *(.text*)
 
         KEEP(*(.init))
@@ -100,24 +96,24 @@ SECTIONS
 
         . = ALIGN(8);
         /* preinit data */
-        PROVIDE (__preinit_array_start = .);
+        PROVIDE_HIDDEN (__preinit_array_start = .);
         KEEP(*(.preinit_array))
-        PROVIDE (__preinit_array_end = .);
+        PROVIDE_HIDDEN (__preinit_array_end = .);
 
         . = ALIGN(8);
         /* init data */
-        PROVIDE (__init_array_start = .);
+        PROVIDE_HIDDEN (__init_array_start = .);
         KEEP(*(SORT(.init_array.*)))
         KEEP(*(.init_array))
-        PROVIDE (__init_array_end = .);
+        PROVIDE_HIDDEN (__init_array_end = .);
 
 
         . = ALIGN(8);
         /* finit data */
-        PROVIDE (__fini_array_start = .);
+        PROVIDE_HIDDEN (__fini_array_start = .);
         KEEP(*(SORT(.fini_array.*)))
         KEEP(*(.fini_array))
-        PROVIDE (__fini_array_end = .);
+        PROVIDE_HIDDEN (__fini_array_end = .);
 
         . = ALIGN(8);
         /* All data end */
@@ -133,7 +129,7 @@ SECTIONS
         __bss_end__ = .;
     } > RAM
     
-    .heap :
+    .heap (COPY):
     {
         __end__ = .;
         end = __end__;
@@ -145,7 +141,7 @@ SECTIONS
     /* .stack_dummy section doesn't contains any symbols. It is only
      * used for linker to calculate size of stack sections, and assign
      * values to stack symbols later */
-    .stack_dummy :
+    .stack_dummy (COPY):
     {
         *(.stack)
     } > RAM

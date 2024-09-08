@@ -44,7 +44,7 @@
    aborting compilation, it is not the run time limit:
    Heap_Size + Stack_Size = 0x80 + 0x80 = 0x100
  */
-    .section .stack
+     .section .stack
     .align 3
 #ifdef __STACK_SIZE
     .equ    Stack_Size, __STACK_SIZE
@@ -73,7 +73,7 @@ __HeapBase:
     .size __HeapBase, . - __HeapBase
 __HeapLimit:
     .size __HeapLimit, . - __HeapLimit
-    
+
     .section .isr_vector
     .align 2
     .globl __isr_vector
@@ -118,8 +118,8 @@ __isr_vector:
     .long   TIMER32_1_IRQHandler      /* 35 19 CT32B1 32 bit timer 1               */
     .long   SSP0_IRQHandler           /* 36 20 SSP                                 */
     .long   UART_IRQHandler           /* 37 21 UART                                */
-    .long   USB_IRQHandler            /* 38 22 USB IRQ                             */
-    .long   USB_FIQHandler            /* 39 23 USB FIQ                             */
+    .long   USB_IRQHandler            /* 38 22 USB IRQ                                    */
+    .long   USB_FIQHandler            /* 39 23 USB FIQ                                   */
     .long   ADC_IRQHandler            /* 40 24 ADC end of conversion               */
     .long   WDT_IRQHandler            /* 41 25 Watchdog interrupt (WDINT)          */
     .long   BOD_IRQHandler            /* 42 26 BOD Brown-out detect                */
@@ -213,6 +213,4 @@ Reset_Handler:
     def_irq_default_handler    PIOINT1_IRQHandler
     def_irq_default_handler    PIOINT0_IRQHandler
     def_irq_default_handler    DEF_IRQHandler
-
     .end
-

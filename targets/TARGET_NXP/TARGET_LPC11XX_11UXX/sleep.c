@@ -19,7 +19,7 @@
 
 void hal_sleep(void) {
     // ensure debug is disconnected
-    #if DEVICE_SEMIHOST
+    #if DEVICE_SEMIHOST && MBED_CONF_TARGET_SEMIHOSTING_ENABLED
     mbed_interface_disconnect();
     #endif
     

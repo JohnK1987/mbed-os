@@ -401,13 +401,21 @@
     "LPC11U24_401": {
         "inherits": ["LPCTarget"],
         "core": "Cortex-M0",
-        "default_toolchain": "uARM",
+        "default_toolchain": "GCC_ARM",
         "extra_labels": ["NXP", "LPC11UXX", "LPC11U24_401"],
         "macros": [
             "CMSIS_VECTAB_VIRTUAL",
             "CMSIS_VECTAB_VIRTUAL_HEADER_FILE=\"cmsis_nvic.h\""
         ],
         "supported_toolchains": ["GCC_ARM"],
+        "supported_c_libs": {
+            "gcc_arm": [
+                "std", "small"
+            ]
+        },
+        "supported_application_profiles": [
+            "bare-metal"
+        ],
         "detect_code": ["1040"],
         "device_has": [
             "ANALOGIN",
@@ -433,12 +441,21 @@
     "LPC11U24_301": {
         "inherits": ["LPCTarget"],
         "core": "Cortex-M0",
+        "default_toolchain": "GCC_ARM",
         "extra_labels": ["NXP", "LPC11UXX"],
         "macros": [
             "CMSIS_VECTAB_VIRTUAL",
             "CMSIS_VECTAB_VIRTUAL_HEADER_FILE=\"cmsis_nvic.h\""
         ],
         "supported_toolchains": ["GCC_ARM"],
+        "supported_c_libs": {
+            "gcc_arm": [
+                "std", "small"
+            ]
+        },
+        "supported_application_profiles": [
+            "bare-metal"
+        ],
         "device_has": [
             "ANALOGIN",
             "I2C",
